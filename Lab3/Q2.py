@@ -6,8 +6,10 @@ from sklearn.metrics import mean_squared_error, r2_score
 
 def load_data(filename):
     df = pd.read_csv(filename)
+    #X=df.drop("disease_score","disease_fluct",axis=1)
+    #y=df["disease_score"]
     X=df.iloc[:,:5]
-    y=df.iloc[:,5]
+    y=df.iloc[:,6]
     return X,y
 def split_data(X,y):
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
